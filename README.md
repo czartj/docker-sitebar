@@ -10,6 +10,8 @@ Added the **Environment variables**:
     SITEBAR_DATABASE_PASSWORD
     SITEBAR_DATABASE_USER
 
+The variavle *SITEBAR_BASEURL* useful when you are going to access the site through a subdirectory, such as https://youdomain.com/sb/
+
 If defined will build/modify a 'config.inc.php' on startup,  which lets you skip adding one manually or through the config process.
 So if you create a .env file such as
 ```
@@ -57,3 +59,24 @@ services:
       - 8083:8080
 ```
 
+You can then use a Reverse Proxy for apache with something like this added in the \<VirtualHost *:443> block:
+
+```
+               <Location /sbar>
+                        ProxyPass http://localhost:8082/
+                        ProxyPassReverse http://localhost:8082
+                </Location>
+
+                <Location /sb_adminer>
+                        ProxyPass http://localhost:8083/
+                        ProxyPassReverse http://localhost:8083
+                </Location>
+```
+
+Which would let you access it like:
+
+ https://yourdomian.com/sb/
+
+And:
+
+https://yourdomian.com/sb_adminer/
