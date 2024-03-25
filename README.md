@@ -10,7 +10,7 @@ Added the **Environment variables**:
     SITEBAR_DATABASE_PASSWORD
     SITEBAR_DATABASE_USER
 
-The variavle *SITEBAR_BASEURL* useful when you are going to access the site through a subdirectory, such as https://youdomain.com/sb/
+The variavle *SITEBAR_BASEURL* useful when you are going to access the site through a subdirectory, such as https://yourdomain.com/sb/
 
 If defined will build/modify a 'config.inc.php' on startup,  which lets you skip adding one manually or through the config process.
 So if you create a .env file such as

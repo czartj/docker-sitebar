@@ -43,11 +43,11 @@ RUN set -ex \
   && mkdir -p /opt \
 # Download SiteBar from: Fri Mar 24 18:12:21 2023 +0100
   && cd /tmp \
-  && SITEBAR_ZIP_URL="https://github.com/czartj/sitebar/archive/e84aad9bda2715b16fbcb49051697dc1637a8f75.zip" \
-  && wget -q "${SITEBAR_ZIP_URL}" \
+  && SITEBAR_VER_TAG="1.0" \
+  && wget -q https://github.com/czartj/sitebar/archive/refs/tags/v${SITEBAR_VER_TAG}.zip \
 # Extract
-  && unzip e84aad9bda2715b16fbcb49051697dc1637a8f75.zip -d /opt \
-  && mv /opt/sitebar-e84aad9bda2715b16fbcb49051697dc1637a8f75 /opt/sitebar \
+  && unzip v${SITEBAR_VER_TAG}.zip -d /opt \
+  && mv /opt/sitebar-${SITEBAR_VER_TAG} /opt/sitebar \
   && rm -Rf /opt/sitebar/adm \
   && mkdir /config \
   && ln -s /config /opt/sitebar/adm \
