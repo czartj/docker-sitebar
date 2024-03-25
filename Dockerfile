@@ -43,7 +43,7 @@ RUN set -ex \
   && mkdir -p /opt \
 # Download SiteBar from: Fri Mar 24 18:12:21 2023 +0100
   && cd /tmp \
-  && SITEBAR_VER_TAG="1.0" \
+  && SITEBAR_VER_TAG="1.1" \
   && wget -q https://github.com/czartj/sitebar/archive/refs/tags/v${SITEBAR_VER_TAG}.zip \
 # Extract
   && unzip v${SITEBAR_VER_TAG}.zip -d /opt \
