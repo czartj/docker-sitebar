@@ -28,7 +28,7 @@ version: '3'
 services:
   sitebar:
     container_name: sitebar
-    image: czartj/sitebar:latest
+    image: czartj/docker-sitebar:latest
     environment:
       - SITEBAR_BASEURL=${BASEURL}
       - SITEBAR_DATABASE_NAME=${DB_NAME}
