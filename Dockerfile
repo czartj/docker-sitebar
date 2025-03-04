@@ -1,4 +1,4 @@
-FROM php:8.2.17-fpm-alpine3.18
+FROM php:8.3-fpm-alpine3.18
 
 ARG BUILD_DATE
 ARG VCS_REF
@@ -29,7 +29,7 @@ RUN set -ex \
     wget \
 # PHP Extensions
   && docker-php-ext-install mysqli opcache pdo_mysql pdo_pgsql pgsql \
-  && pecl install APCu-5.1.23 \
+  && pecl install APCu-5.1.24 \
   && docker-php-ext-enable apcu \
 # Remove dev packages
   && apk del \
@@ -43,7 +43,7 @@ RUN set -ex \
   && mkdir -p /opt \
 # Download SiteBar from: Fri Mar 24 18:12:21 2023 +0100
   && cd /tmp \
-  && SITEBAR_VER_TAG="1.1" \
+  && SITEBAR_VER_TAG="2.0" \
   && wget -q https://github.com/czartj/sitebar/archive/refs/tags/v${SITEBAR_VER_TAG}.zip \
 # Extract
   && unzip v${SITEBAR_VER_TAG}.zip -d /opt \
